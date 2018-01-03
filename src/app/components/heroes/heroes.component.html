@@ -1,20 +1,28 @@
-<h1>Héroes <small>Marvel y DC</small> </h1>
+<h1>Héroes
+  <small>Marvel y DC</small>
+</h1>
 <hr>
 
 <div class="card-columns">
-  <div class="card">
-    <img class="card-img-top img-fluid" src="assets/img/aquaman.png" alt="Card image cap">
+  <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index ">
+    <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
     <div class="card-block">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      <button type="button" class="btn btn-outlet-primary btn-block">
+      <h4 class="card-title">{{heroe.nombre}}</h4>
+      <div id="bodydesc" style="margin-left:auto; margin-right:auto; width:auto; height: 100px; overflow-y: auto;
+        overflow-x: hidden;">
+        <p class="card-text" style="float:left; width:auto;">{{heroe.bio}}</p>
+      </div>
+      <p class="card-text">
+        <small class="text-muted">{{heroe.aparicion}}</small>
+      </p>
+      <button type="button" (click)="verHeroe(i)" class="btn btn-outlet-primary btn-block">
         Ver más...
       </button>
+
     </div>
   </div>
 
 
-  
+
 
 </div>
